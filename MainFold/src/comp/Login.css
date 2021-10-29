@@ -1,0 +1,78 @@
+.LoginHeader {
+  position: absolute;
+  width: 338px;
+  height: 60px;
+  left: 468px;
+  top: 90px;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 43px;
+  line-height: 59px;
+
+  color: #000000;
+}
+
+.Label {
+  font-weight: bold;
+  position: absolute;
+  width: 338px;
+  height: 60px;
+  left: 670px;
+  top: 300px;
+}
+.Label2 {
+  position: absolute;
+  width: 338px;
+  height: 60px;
+  left: 469px;
+  top: 320px;
+}
+.Label3 {
+  font-weight: bold;
+  position: absolute;
+  width: 338px;
+  height: 60px;
+  left: 469px;
+  top: 340px;
+  text-Decoration: none;
+  color : black;
+  
+}
+.Label3:hover {
+  color: grey;
+}
+
+.Login-Form {
+  position: absolute;
+  width: 338px;
+  height: 20px;
+  left: 469px;
+  top: 161px;
+}
+.login-button {
+  position: absolute;
+  font: bold;
+  width: 100px;
+  height: 40px;
+  left: 700px;
+  top: 340px;
+}
+.Register-button {
+    position: absolute;
+    font: bold;
+    width: 100px;
+    height: 40px;
+    left: 700px;
+    top: 370px;
+    
+  }
+.social-container {
+  position: absolute;
+  width: 165px;
+  height: 30px;
+  left: 468px;
+  top: 400px;
+  display: flex;
+  justify-content: space-evenly;
+}
