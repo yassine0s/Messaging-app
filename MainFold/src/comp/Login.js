@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import {
@@ -9,12 +9,13 @@ import {
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
-import {toast} from 'react-toastify'
-import { Redirect } from 'react-router-dom';
+import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 toast.configure();
 
 function Login() {
-  const idRef = useRef();
+  const history = useHistory();
+
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const login = () => {
@@ -23,11 +24,18 @@ function Login() {
       Password: Password,
     }).then((response) => {
       if (response.data.message) {
-        toast.error('Wrong Email or Password',{position: toast.POSITION.BOTTOM_CENTER, autoClose : false});
 
+        toast.error("Wrong Email or Password", {
+          position: toast.POSITION.BOTTOM_CENTER,
+          autoClose: false,
+        });
       } else {
 
-         <Redirect to="/Main_Page" />
+        history.push({
+          
+          pathname: "/Main_Page",
+          state: { detail: Email },
+        });
       }
     });
   };
@@ -40,10 +48,10 @@ function Login() {
         <Label>Email</Label>
         <Input
           type="email"
+          required
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-          required
         ></Input>
         <Label>Password</Label>
         <Input

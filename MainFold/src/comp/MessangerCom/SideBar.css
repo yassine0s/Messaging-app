@@ -1,0 +1,27 @@
+.SideBar{
+    user-select: none;
+    color: #bdbebe !important;
+width: 170px;
+background-color: rgba(105, 107, 107, 0.74);
+}
+.Navb{
+    position: absolute;
+    left: 0px;
+    top:60px;
+    width: 340px;
+    display: flex;
+    flex-direction:column
+}
+
+.border{
+    border-right: 5px solid;
+    color: black !important;
+    height: 500px;
+}
+.flex  {
+    
+    display : flex;
+    border-right: 5px solid;
+
+    height : 500px;
+}

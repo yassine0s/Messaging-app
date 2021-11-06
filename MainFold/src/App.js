@@ -16,8 +16,8 @@ function App() {
           <Register></Register>
         </Route>
         <Route path="/Main_Page">
-          <Card></Card>
-         <MainScreen></MainScreen>
+        <MainScreen /> 
+         
         </Route>
       </Switch>
     </Router>

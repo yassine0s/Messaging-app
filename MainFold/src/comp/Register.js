@@ -7,11 +7,14 @@ import {
   TwitterLoginButton,
 } from "react-social-login-buttons";
 import Axios from 'axios' 
+import {  useHistory } from "react-router-dom";
 
 function Register() {
   const [nameReg, setnameReg] = useState("");
   const [emailReg, setemailReg] = useState("");
   const [PasswordReg, setPasswordReg] = useState("");
+  const history = useHistory();
+
   const register = () => {
     Axios
       .post('http://localhost:3001/register', {
@@ -19,9 +22,8 @@ function Register() {
         Email: emailReg,
         Password: PasswordReg,
       })
-      .then((response) => {
-        console.log(response);
-      });
+        history.push("/");
+   
   };
     return (
       <Form>
