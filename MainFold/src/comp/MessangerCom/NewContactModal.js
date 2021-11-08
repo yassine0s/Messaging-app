@@ -1,17 +1,17 @@
-import React, { createContext, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Modal, Form } from "react-bootstrap";
 import { Button, Input } from "reactstrap";
 import Axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import "./SideBar.css";
-
+import {useContacts} from './Context/ContactsProvider'
 const NewContactModal = ({ closeModal }) => {
   const EmailRef = useRef();
   const NameRef = useRef();
   const [Email, setEmail] = useState("");
   const [Name, setName] = useState("");
-
+const {createContact}= useContacts();
   const handleSubmit = () => {
     Axios.post("http://localhost:3001/NewContact", {
       Email: Email,
@@ -23,7 +23,7 @@ const NewContactModal = ({ closeModal }) => {
           autoClose: false,
         });
       } else {
-        // createContact(EmailRef.current.value,nameRef.current.value)
+         createContact(Email,Name)
         closeModal();
       }
     });

@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./comp/Login";
 import Register from "./comp/Register";
 import MainScreen from "./comp/MessangerCom/MainScreen";
+import { ContactsProvider } from "./comp/MessangerCom/Context/ContactsProvider"
+
 function App() {
   return (
     <Router>
@@ -16,8 +18,10 @@ function App() {
           <Register></Register>
         </Route>
         <Route path="/Main_Page">
+          <ContactsProvider>
         <MainScreen /> 
-         
+        </ContactsProvider>
+
         </Route>
       </Switch>
     </Router>
