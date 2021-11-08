@@ -24,15 +24,12 @@ function Login() {
       Password: Password,
     }).then((response) => {
       if (response.data.message) {
-
         toast.error("Wrong Email or Password", {
           position: toast.POSITION.BOTTOM_CENTER,
           autoClose: false,
         });
       } else {
-
         history.push({
-          
           pathname: "/Main_Page",
           state: { detail: Email },
         });
