@@ -4,6 +4,7 @@ import Login from "./comp/Login";
 import Register from "./comp/Register";
 import MainScreen from "./comp/MessangerCom/MainScreen";
 import { ContactsProvider } from "./comp/MessangerCom/Context/ContactsProvider"
+import { ConversationsProvider } from "./comp/MessangerCom/Context/ConversationsProvider"
 
 function App() {
   return (
@@ -19,7 +20,10 @@ function App() {
         </Route>
         <Route path="/Main_Page">
           <ContactsProvider>
+            <ConversationsProvider>
         <MainScreen /> 
+        </ConversationsProvider>
+
         </ContactsProvider>
 
         </Route>

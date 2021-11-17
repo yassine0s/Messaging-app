@@ -23,6 +23,13 @@
   font: bold;
   font-size: 20px;
 }
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  z-index:2;
+  color:#ffffff;
+  background-color:#3e4141;
+  border-color:#3e4141;
+}
+
 
 .border {
   border-right: 5px solid;
@@ -33,9 +40,18 @@
   display: flex;
   border-right: 5px solid;
 
-  height: 500px;
+  height: 634px;
 }
-
+.box2 {
+  background: #3a3939;
+  text-align: center;
+}
+.box2 h1 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+  font : bold
+}
 .box {
   background: #333232;
   text-align: center;
@@ -81,4 +97,23 @@
 }
 .box input[type="submit"]:hover {
   background: white;
+}
+
+.bckgrnd{
+  
+  background-image: url("./img/BackGroundImage.png");
+ display: flex;
+ flex-direction: column;
+ flex-grow: 1;
+
+}
+.messages{
+    height:30px;
+    width:100px;
+    border:2px solid rgb(134, 133, 133);
+    width:100px;
+    margin-top:10px;
+    margin-left:10px;
+    background:white;
+
 }
