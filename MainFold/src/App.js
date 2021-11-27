@@ -5,7 +5,7 @@ import Register from "./comp/Register";
 import MainScreen from "./comp/MessangerCom/MainScreen";
 import { ContactsProvider } from "./comp/MessangerCom/Context/ContactsProvider"
 import { ConversationsProvider } from "./comp/MessangerCom/Context/ConversationsProvider"
-
+import "./index.css"
 function App() {
   return (
     <Router>
@@ -22,8 +22,7 @@ function App() {
           <ContactsProvider>
             <ConversationsProvider>
         <MainScreen /> 
-        </ConversationsProvider>
-
+        </ConversationsProvider >
         </ContactsProvider>
 
         </Route>
