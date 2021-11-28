@@ -5,7 +5,6 @@ import SideBar from "./SideBar";
 import "./SideBar.css";
 import MainConversation from "./MainConversation"
 import {useConversations} from "./Context/ConversationsProvider"
-import { SocketProvider } from "./Context/socketProvider";
 function MainScreen() {
   const location = useLocation();
 
@@ -13,10 +12,10 @@ function MainScreen() {
 const {selectedConversation} = useConversations()
   return (
     <div className="flex " >
-      <SocketProvider Email={location.state.detail}>
+      
       <SideBar Email={location.state.detail} />
       {selectedConversation && <MainConversation></MainConversation>}
-      </SocketProvider>
+      
 
     </div>
     

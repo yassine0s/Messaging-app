@@ -15,7 +15,6 @@ const {createContact}= useContacts();
   const handleSubmit = () => {
     Axios.post("http://localhost:3001/NewContact", {
       Email: Email,
-      Name: Name,
     }).then((response) => {
       if (response.data.message) {
         toast.error("Cannot find user", {

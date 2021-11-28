@@ -2,24 +2,23 @@ const express = require("express");
 const app = express();
 const mysql = require("mysql2");
 const cors = require("cors");
-const io = require("socket.io")(3000);
-io.on("connection", (socket) => {
-  const Email = socket.handshake.query.Email; //keep same Email everytime when refreshing
-  socket.join(Email);
-  socket.on("send-message", ({ recipients, text }) => {
-    recipients.forEach((recipient) => {
-      const newRecipients = recipients.filter((r) => r !== recipient);
-      newRecipients.push(Email);
-      socket.braodcast
-        .to(recipient)
-        .emit('recieve-message', {
-          recipients: newRecipients,
-          sender: Email,
-          text,
-        });
-    });
-  }); //everytime message is sent it will go through this send-message
-});
+
+const io = require('socket.io')(5000)
+io.on('connection', socket => {
+  const Email = socket.handshake.query.Email
+  socket.join(Email)
+
+  socket.on('send-message', ({ recipients, text }) => {
+    recipients.forEach(recipient => {
+      const newRecipients = recipients.filter(r => r !== recipient)
+      newRecipients.push(Email)
+      socket.broadcast.to(recipient).emit('receive-message', {
+        recipients: newRecipients, sender: Email, text
+      })
+    })
+  })
+})
+
 app.use(express.json());
 app.use(cors());
 const db = mysql.createPool({
@@ -58,10 +57,9 @@ app.post("/login", (req, res) => {
 });
 app.post("/NewContact", (req, res) => {
   const Email = req.body.Email;
-  const Name = req.body.Name;
   db.query(
-    "Select * from authentication where Email = ? and Name = ?",
-    [Email, Name],
+    "Select * from authentication where Email = ? ",
+    [Email],
     (err, result) => {
       if (err) res.send({ err: err });
       if (result.length > 0) {
@@ -70,4 +68,8 @@ app.post("/NewContact", (req, res) => {
     }
   );
 });
-app.listen(3001, console.log("Server started on PORT 3001"));
+
+
+
+
+app.listen(3001,  console.log("Server started on PORT 3001"));

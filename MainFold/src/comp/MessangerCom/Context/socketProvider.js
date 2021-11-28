@@ -12,7 +12,7 @@ export function SocketProvider({ Email, children }) {
 
   useEffect(() => {
     const newSocket = io(
-      'http://localhost:3000/Main_Page',
+      'http://localhost:5000',
       { query: { Email } }
     )
     setSocket(newSocket)

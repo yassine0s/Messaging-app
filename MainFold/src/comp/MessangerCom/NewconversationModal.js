@@ -32,7 +32,7 @@ const NewConversationModal = ({ closeModal }) => {
       <Modal.Body className="box2">
         <Form onSubmit={handleSubmit}>
           {contacts.map((contact) => (
-            <Form.Group controlEmail={contact.Email} key={contact.Email}>
+            <Form.Group controlemail={contact.Email} key={contact.Email}>
               <Form.Check className ="txt"
                 type="checkbox"
                 value={selectedContactEmails.includes(contact.Email)}

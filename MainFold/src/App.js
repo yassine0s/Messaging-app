@@ -2,10 +2,9 @@ import Card from "./Background/Card";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./comp/Login";
 import Register from "./comp/Register";
-import MainScreen from "./comp/MessangerCom/MainScreen";
-import { ContactsProvider } from "./comp/MessangerCom/Context/ContactsProvider"
-import { ConversationsProvider } from "./comp/MessangerCom/Context/ConversationsProvider"
-import "./index.css"
+import Dashboard from "./comp/MessangerCom/Dashboard"
+import "./index.css";
+
 function App() {
   return (
     <Router>
@@ -19,12 +18,7 @@ function App() {
           <Register></Register>
         </Route>
         <Route path="/Main_Page">
-          <ContactsProvider>
-            <ConversationsProvider>
-        <MainScreen /> 
-        </ConversationsProvider >
-        </ContactsProvider>
-
+          <Dashboard></Dashboard>
         </Route>
       </Switch>
     </Router>

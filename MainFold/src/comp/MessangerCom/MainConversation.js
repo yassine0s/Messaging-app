@@ -42,8 +42,8 @@ const MainConversation = () => {
                   }`}
                 >
                   <div
-                    className={`rounded px-2 py-1 ${
-                      message.fromMe ? "bg-secondary text-white" : 'border'
+                    className={`rounded px-2 py-1  ${
+                      message.fromMe ? "bg-secondary text-white" : 'bg-dark text-white'
                     }`}
                   >
                     {message.text}

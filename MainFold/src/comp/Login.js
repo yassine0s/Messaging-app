@@ -32,7 +32,9 @@ function Login() {
         history.push({
           pathname: "/Main_Page",
           state: { detail: Email },
+
         });
+       
       }
     });
   };
