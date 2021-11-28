@@ -3,8 +3,11 @@ const app = express();
 const mysql = require("mysql2");
 const cors = require("cors");
 
-const io = require('socket.io')(5000)
+const io = require('socket.io')(5000 , { cors: {
+  origin: '*',  }
+})
 io.on('connection', socket => {
+  
   const Email = socket.handshake.query.Email
   socket.join(Email)
 
