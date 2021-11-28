@@ -1,0 +1,29 @@
+.Triangle{
+    
+    position: absolute;
+    width: 679px;
+    height: 500px;
+    left: -180px;
+    top: -387px;
+    
+    
+}
+.Triangle2{
+    
+    position: fixed;
+    width: 100px;
+    height: 10px;
+    left:1010px;
+    top: -60px;
+
+}
+.Triangle3{
+    
+    position: fixed;
+    width: 1418.07px;
+    height: 457.33px;
+    left: -100px;
+    top: 300px;
+    
+    transform: rotate(13.51deg);
+}
