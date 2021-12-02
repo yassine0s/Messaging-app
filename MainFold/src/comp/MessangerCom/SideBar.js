@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Tab, Nav, Modal } from "react-bootstrap";
 import "./SideBar.css";
+
 import Conversation from "./Conversation";
 import Contacts from "./Contacts";
 import Container from "react-bootstrap/Container";
@@ -10,8 +11,11 @@ import "antd/dist/antd.css";
 import { Button } from "reactstrap";
 import NewContactModal from "./NewContactModal";
 import NewConversationModal from "./NewconversationModal";
+import Settings from "./Settings";
+import MyPhoto from "./img/avatar.jpg";
+import ReactRoundedImage from "react-rounded-image";
+import ImageUpload from "./ImageUpload";
 
-import { Avatar } from "antd";
 const Conversation_Key = "Conversation";
 const Contact_Key = "Contacts";
 
@@ -22,13 +26,38 @@ const SideBar = ({ Email }) => {
   function closeModal() {
     setModalOpen(false);
   }
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <div>
       <div>
         <Container>
           <Row>
-            <Col className=" SideBar">
-              <Avatar size={43} icon="" />
+            <Col className=" SideBar" onClick={togglePopup}>
+              {" "}
+              {isOpen && (
+                <Settings
+                  content={
+                    <div>
+                      <div style={{ fontWeight: "bold"  }}>Settings</div>
+                      <ImageUpload className="mb-2 mt-2" /> 
+                      <div>
+                        <Button>Change Data</Button>
+                      </div>
+                    </div>
+                  }
+                  handleClose={togglePopup}
+                />
+              )}
+              <ReactRoundedImage
+                roundedSize="4"
+                imageWidth="43"
+                imageHeight="43"
+                image={MyPhoto}
+              ></ReactRoundedImage>
             </Col>
             <Col className=" SideBar" style={{ color: "black" }}>
               <span>Your Email: {Email} </span>
@@ -36,7 +65,6 @@ const SideBar = ({ Email }) => {
           </Row>
         </Container>
       </div>
-
       <div className="Navb">
         <Tab.Container activeKey={activeKey} onSelect={setActiveKey}>
           <Nav variant="tabs" className="justify-content-center">
@@ -74,5 +102,6 @@ const SideBar = ({ Email }) => {
     </div>
   );
 };
+
 
 export default SideBar;
